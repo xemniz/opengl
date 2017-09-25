@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                 || Build.MODEL.contains("Android SDK built for x86")
         if (supportEs2){
             glSurfaceView.setEGLContextClientVersion(2)
-            glSurfaceView.setRenderer(FirstOpenGLProjectRenderer())
+            glSurfaceView.setRenderer(AirHockeyRenderer(this))
             rendererSet = true
         } else {
             Toast.makeText(this, "This device not suport OpenGL2", Toast.LENGTH_SHORT).show()
