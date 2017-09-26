@@ -15,14 +15,9 @@ class TextResourceReader {
             val body = StringBuilder()
             try {
                 val inputStream = context.resources.openRawResource(resourceId)
-                val inputStreamReader = InputStreamReader(inputStream)
-                val bufferedReader = BufferedReader(inputStreamReader)
-                var nextLine: String?
-                while (bufferedReader.readLine() != null) {
-                    nextLine = bufferedReader.readLine()
-                    body.append(nextLine)
-                    body.append("\n")
-                }
+
+                val inputAsString = inputStream.bufferedReader().use { it.readText() }
+                body.append(inputAsString)
             } catch (e: IOException) {
                 throw RuntimeException("Could not open resource")
             } catch (nfe: Resources.NotFoundException) {

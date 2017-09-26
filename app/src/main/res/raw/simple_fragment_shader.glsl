@@ -1,7 +1,5 @@
-precision mediump float;
-
-uniform vec4 u_Color;
-
-void main(){
-gl_Frag_Color = u_Color;
-}
+attribute vec4 a_Position;  
+void main()  
+{  
+gl_Position = a_Position;
+}  
