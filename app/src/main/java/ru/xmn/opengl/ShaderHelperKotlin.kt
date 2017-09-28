@@ -51,8 +51,8 @@ fun linkProgram(vertexShaderId: Int, fragmentShaderId: Int): Int {
 
     val linkStatus = IntArray(1)
     glGetProgramiv(programObjectId, GL_LINK_STATUS, linkStatus, 0)
-    log(TAG, "Result of linking program:\n" +
-            glGetProgramInfoLog(programObjectId))
+//    log(TAG, "Result of linking program:\n" +
+//            glGetProgramInfoLog(programObjectId))
 
     if (linkStatus[0] == 0) {
         glDeleteProgram(programObjectId)
@@ -70,7 +70,7 @@ fun validateProgram(programObjectId: Int): Boolean{
 
     val validateStatus = IntArray(1)
     glGetProgramiv(programObjectId, GL_LINK_STATUS, validateStatus, 0)
-    Log.v(TAG, "Result of validating program:\n${validateStatus[0]}\n${glGetProgramInfoLog(programObjectId)}")
+//    Log.v(TAG, "Result of validating program:\n${validateStatus[0]}\n${glGetProgramInfoLog(programObjectId)}")
 
     return validateStatus[0] != 0
 }
